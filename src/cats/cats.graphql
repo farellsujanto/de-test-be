@@ -1,27 +1,33 @@
 type Query {
   cats: [Cat]
   cat(id: ID!): Cat
+  owner(id: ID!): Owner
+  owners: [Owner]
 }
 
 type Mutation {
   createCat(createCatInput: CreateCatInput): Cat
+  setOwnerAsMaster(setOwnerAsMasterInput: SetOwnerAsMasterInput): Owner
 }
 
 type Subscription {
   catCreated: Cat
+  newOwnerIsMaster: Owner
 }
 
 type Owner {
   id: Int!
-  name: String!
-  age: Int
+  firstName: String!
+  lastName: String!
   cats: [Cat!]
+  isMaster: Boolean
 }
 
 type Cat {
   id: Int
   name: String
-  age: Int
+  yearAge: Int
+  monthAge: Int
   owner: Owner
 }
 """
@@ -29,5 +35,10 @@ Test comment
 """
 input CreateCatInput {
   name: String
-  age: Int
+  yearAge: Int
+  monthAge: Int
+}
+
+input SetOwnerAsMasterInput {
+  id: Int
 }
