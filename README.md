@@ -2,7 +2,7 @@
 
 ### Installation
 
-`npm install`
+`yarn install`
 
 ### Graphql Playground
 
