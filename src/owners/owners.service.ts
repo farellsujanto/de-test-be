@@ -25,9 +25,9 @@ export class OwnersService {
     // Remove previous master tag
     this.owners.find(owner => owner.isMaster === true).isMaster = false;
     // Add new master tag
-    const test = this.owners.find(owner => owner.id === args.id);
-    test.isMaster = true;
-    return test;
+    const newMaster = this.findOneById(args.id) ;
+    newMaster.isMaster = true;
+    return newMaster;
   }
 
   findAll(): Owner[] {
