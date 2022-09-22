@@ -12,16 +12,16 @@ When the application is running, you can go to [http://localhost:3000/graphql](h
 #### Set Owner as Master
 ```
 mutation {
-  setOwnerAsMaster (
-    setOwnerAsMasterInput: {
-      id: 1
+    setOwnerAsMaster (
+        setOwnerAsMasterInput: {
+            id: 1,
+        },
+    ) {
+        id,
+        firstName,
+        lastName,
+        isMaster,
     },
-  ) {
-  	id,
-    firstName,
-    lastName,
-    isMaster,
-  },
 }
 ```
 
@@ -29,16 +29,16 @@ mutation {
 ```
 query {
 	owners {
-    id,
-    firstName,
-    lastName,
-    isMaster,
-    cats {
-      id,
-      name,
-      yearAge,
-      monthAge,
-    }
-  }
+        id,
+        firstName,
+        lastName,
+        isMaster,
+        cats {
+            id,
+            name,
+            yearAge,
+            monthAge,
+        },
+    },
 }
 ```
